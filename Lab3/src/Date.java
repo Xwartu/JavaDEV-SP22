@@ -12,9 +12,9 @@ public class Date
     }
 
     //Set a whole date, likely object initializer
-    public void setDate(String _date)
+    public void setDate(String _dateSet)
     {
-        date = "MM-DD-YYYY";
+        date = _dateSet;
     }
 
     //Get month value from date variable
@@ -82,16 +82,19 @@ public class Date
         int _gDateYear = Integer.parseInt(getYear());
 
         //Other date variables
-        int _otherDateDay = Integer.parseInt(_otherDate.getYear());
+        int _otherDateDay = Integer.parseInt(_otherDate.getDay());
         int _otherDateMonth = Integer.parseInt(_otherDate.getMonth());
         int _otherDateYear = Integer.parseInt(_otherDate.getYear());
 
         //Calculation
-        _dayDifference = Math.abs(_gDateDay - _otherDateDay);
-        _monthDifference = Math.abs(_gDateMonth - _otherDateMonth)*30;
-        _yearDifference = Math.abs(_gDateYear - _otherDateYear)*365;
+        _dayDifference = _gDateDay - _otherDateDay;
+        //System.out.println(_dayDifference);
+        _monthDifference = (_gDateMonth - _otherDateMonth) * 30;
+        //System.out.println(_monthDifference);
+        _yearDifference = (_gDateYear - _otherDateYear) *365;
+        //System.out.println(_yearDifference);
 
-        _totalDifference = _dayDifference + _monthDifference + _yearDifference;
+        _totalDifference = Math.abs(_dayDifference) + Math.abs(_monthDifference) + Math.abs(_yearDifference);
 
         //Return end results
         return _totalDifference;

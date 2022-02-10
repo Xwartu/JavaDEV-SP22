@@ -42,35 +42,41 @@ Enter the length of height :
 Area of triangle with length of sides 2 and 2 is : 2
 */
 import java.io.*;
+import java.util.Scanner;
 
 class DebugProgramTwo {
-   public void findarea(a, b) {
-      area = (a * b);
+   public void findarea(int a, int b)
+   {
+      int area = ((a * b)/2);
       System.out.println("\n Area of triangle with length of sides " + a + " and " + b + " is : " + area);
    }
 
-   void findarea(int a) {
+   public void findarea(int a)
+   {
       System.out.println("\n Area of circle with  radius " + a + " is :" + 3.14 * a);
    }
 
-   public void main(String p[]) throws IOException {
+   public static void main(String p[]) throws IOException {
       DebugProgramTwo d = new DebugProgramTwo();
-      String keyBoard = new Scanner(System.in);
+      Scanner keyBoard = new Scanner(System.in);
       System.out.print("\n Find area of \n 1 . Triangle \n 2 . Circle \n\nSelect a choice : ");
-      choice = keyBoard.nextInt();
+      int choice = keyBoard.nextInt();
 
-      if (choice == 1) {
+      if (choice == 1)
+      {
          System.out.print("\n Enter the length of base : ");
-         intx = keyBoard.nextInt();
+         int x = keyBoard.nextInt();
          System.out.print("\n Enter the length of height : ");
-         y = keyBoard.nextInt();
+         int y = keyBoard.nextInt();
          d.findarea(x, y);
 
       } else if (choice == 2) {
          System.out.print("\n Enter the radius : ");
-         r = keyBoard.nextInt();
-         DebugProgramTwo.findarea(r);
-      } else {
+         int r = keyBoard.nextInt();
+         d.findarea(r);
+      } else
+      {
+
          System.out.println("Invalid choice");
       }
 

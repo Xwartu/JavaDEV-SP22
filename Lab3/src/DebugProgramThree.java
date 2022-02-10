@@ -36,21 +36,21 @@ class DebugProgramThree {
 
     public static void main(String p[]) throws IOException {
         String str = "This is a debugging exercise";
-        int len = str.length;
+        int len = str.length();
 
-        char ch1 = str.charAt(str.len);
+        char ch1 = str.charAt(len - 1);
         System.out.println("The last character of the string is " + ch1);
 
         String str1 = "Hello";
         String str2 = " World";
 
-        System.out.println(static String.concat(str1, str2));
+        System.out.println(str1.concat(str2));
 
         System.out.println(str.replace('i', 'K'));
 
         System.out.println("Substring starting from index 15:");
         System.out.println(str.substring(15));
         System.out.println("Substring starting from index 15 and ending at 20:");
-        System.out.println(str.substring(15, 30));
+        System.out.println(str.substring(15, len));
     }
 }

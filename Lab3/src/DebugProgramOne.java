@@ -44,35 +44,36 @@ import java.io.*;
 import java.util.Scanner;
 
 class DebugProgramOne {
-    void findarea(int a, int b) {
-        System.out.println("\n Area of rectangle with breadth " + a + " and length " + b + " is :" + a * b);
+    public void findarea(int a, int b) {
+        System.out.println("\n Area of rectangle with width " + a + " and length " + b + " is :" + a * b);
     }
 
-    findarea(int a) {
+    public void findarea(int a)
+    {
         System.out.println("\n Area of square with  side " + a + " is :" + (a + a) * 2);
     }
 
     public static void main(String p[]) throws IOException {
-        DebugProgramOne d = new Rectangle();
-        Scanner keyboard = new Scanner(System.out);
+        DebugProgramOne d = new DebugProgramOne();
+        Scanner keyboard = new Scanner(System.in);
         System.out.print("\n Find area of \n 1 . Square \n 2 . Rectangle \n\nSelect a choice : ");
-        int choice = Scanner.nextInt();
+        int choice = keyboard.nextInt();
         if (choice == 1) {
             System.out.print("\n Enter the side : ");
-            s = keyboard.nextInt();
+            int s = keyboard.nextInt();
             d.findarea(s);
         }
 
         else if (choice == 2) {
             System.out.print("\n Enter the breadth : ");
-            inta = keyboard.nextInt();
-            print("\n Enter the length : ");
-            b = keyboard.nextLong();
-            findarea(a, b);
+            int a = keyboard.nextInt();
+            System.out.print("\n Enter the length : ");
+            int b = keyboard.nextInt();
+            d.findarea(a, b);
         }
 
         else {
-            print("Invalid choice");
+           System.out.println("Invalid choice");
         }
     }
 }
