@@ -63,7 +63,7 @@ public class PollTracking
         // Set up buttons
         button1.addActionListener(new Option1ButtonListener(pollOption1Label));
         button2.addActionListener(new Option2ButtonListener(pollOption2Label));
-        submitButton.addActionListener(new OptionOtherButtonListener(textField, pollOtherLabel));
+        submitButton.addActionListener(new OptionOtherButtonListener(textField, pollOtherLabel, pollOption1Label, pollOption2Label));
         createGraphButton.addActionListener(new CreateGraphButtonListener(button1, button2, submitButton, createGraphButton, textField, mainFrame));
 
         // Adding them to Voting Panel
@@ -147,46 +147,74 @@ public class PollTracking
         // Variables for Array List
         JTextField buttonTextField;
         String content;
+        int currentSize = 2;
 
         // Label Variables
         JLabel mainLabel;
+        JLabel dogLabel;
+        JLabel hamLabel;
 
-        public OptionOtherButtonListener(JTextField mainTextField, JLabel otherLabel)
+
+        public OptionOtherButtonListener(JTextField mainTextField, JLabel otherLabel, JLabel hotDog, JLabel hamburger)
         {
             buttonTextField = mainTextField;
-            content = buttonTextField.getText();
             mainLabel = otherLabel;
+            dogLabel = hotDog;
+            hamLabel = hamburger;
         }
 
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            // Increment counts
-            if(CheckForDuplicate())
+            content = buttonTextField.getText();
+            if(content.equalsIgnoreCase("hotdog") || content.equals("hot dog"))
             {
-                // Clear Text Field
+                int currentCount = voteCountList.get(0);
+                currentCount += 1;
+                voteCountList.set(0, currentCount);
+                updateLabelDog();
+
+                buttonTextField.setText("");
+            }
+            else if(content.equalsIgnoreCase("hamburger"))
+            {
+                int currentCount = voteCountList.get(1);
+                currentCount += 1;
+                voteCountList.set(1, currentCount);
+                updateLabelHam();
+
                 buttonTextField.setText("");
             }
             else
             {
-                // Set count
-                int currentSize = voteCountList.size();
-                voteCountList.add(currentSize, 1);
+                if(CheckForDuplicate())
+                {
+                    // Clear Text Field
+                    buttonTextField.setText("");
+                }
+                else
+                {
+                    // Set count
+                    voteCountList.add(currentSize, 1);
 
-                // Add category to list
-                categoryList.add(currentSize, content);
+                    // Add category to list
+                    categoryList.add(currentSize, content);
 
-                // Clear Text Field
-                buttonTextField.setText("");
+                    // Increment
+                    currentSize += 1;
+
+                    // Clear Text Field
+                    buttonTextField.setText("");
+                }
+
+                updateLabel();
             }
 
-            updateLabel();
         }
 
         // Helper Function
         private boolean CheckForDuplicate()
         {
-            int duplicateIndex = 0;
             int permDuplicateIndex = 0;
             boolean foundDuplicate = false;
             for (int i = 0; i < voteCountList.size(); i++)
@@ -194,18 +222,16 @@ public class PollTracking
                 if(content.equalsIgnoreCase(categoryList.get(i)))
                 {
                     foundDuplicate = true;
-                    permDuplicateIndex = duplicateIndex;
-                }
-                else
-                {
-                    duplicateIndex += 1;
+                    permDuplicateIndex = i;
                 }
             }
-
-            // Increase count for duplicate
-            int currentCount = voteCountList.get(permDuplicateIndex);
-            currentCount += 1;
-            voteCountList.set(permDuplicateIndex, currentCount);
+            if(foundDuplicate == true)
+            {
+                // Increase count for duplicate
+                int currentCount = voteCountList.get(permDuplicateIndex);
+                currentCount += 1;
+                voteCountList.set(permDuplicateIndex, currentCount);
+            }
 
             return foundDuplicate;
         }
@@ -226,6 +252,20 @@ public class PollTracking
         {
             mainLabel.setText("Other: " + tallyOther());
         }
+
+        // Helper Function
+        private void updateLabelDog()
+        {
+            dogLabel.setText("Hot Dogs: " + voteCountList.get(0));
+        }
+
+        //Helper Function
+        private void updateLabelHam()
+        {
+            hamLabel.setText("Hamburgers: " + voteCountList.get(1));
+        }
+
+
 
     }
 

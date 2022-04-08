@@ -67,63 +67,186 @@ public class StackedChart extends JComponent
         g.fillRect(110, 318, 360, 5);
         g.drawString("0", 95, 323);
 
-        // Now draw categories
-        if (categories.size() == 2) {
+
+
+        if (categories.size() == 2)
+        {
+            int screenArea = 320;
             // Draw Category 1
             super.paintComponent(g);
             g.setColor(Color.blue);
             int box1 = 300 * voteList.get(0) / totalTally();
-            g.fillRect(140, 170 - box1, 300, 300 * voteList.get(0) / totalTally());
-            g.setColor(Color.black);
-            g.drawString(categories.get(0), 460, 170 - box1);
+            screenArea -= box1;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(0) / totalTally());
+            g.drawString(categories.get(0), 500, 350);
 
             // Draw Category 2
             super.paintComponent(g);
-            g.setColor(Color.yellow);
+            g.setColor(Color.cyan);
             int box2 = 300 * voteList.get(1) / totalTally();
-            g.fillRect(140, 320 - box2, 300, 300 * voteList.get(1) / totalTally());
+            screenArea -= box2;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(1) / totalTally());
+            g.drawString(categories.get(1), 500, 330);
+        }
+        else if (categories.size() == 3)
+        {
+            int screenArea = 320;
+            // Draw Category 1
+            super.paintComponent(g);
+            g.setColor(Color.blue);
+            int box1 = 300 * voteList.get(0) / totalTally();
+            screenArea -= box1;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(0) / totalTally());
+            g.drawString(categories.get(0), 500, 350);
+
+            // Draw Category 2
+            super.paintComponent(g);
+            g.setColor(Color.cyan);
+            int box2 = 300 * voteList.get(1) / totalTally();
+            screenArea -= box2;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(1) / totalTally());
+            g.drawString(categories.get(1), 500, 330);
+
+            // Draw Category 3
+            super.paintComponent(g);
+            g.setColor(Color.green);
+            int box3 = 300 * voteList.get(2) / totalTally();
+            screenArea -= box3;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(2) / totalTally());
+            g.drawString(categories.get(2), 500, 310);
+
+        }
+        else if (categories.size() == 4)
+        {
+            int screenArea = 320;
+            // Draw Category 1
+            super.paintComponent(g);
+            g.setColor(Color.blue);
+            int box1 = 300 * voteList.get(0) / totalTally();
+            screenArea -= box1;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(0) / totalTally());
             g.setColor(Color.black);
-            g.drawString(categories.get(1), 460, 320 - box2);
-        } else if (categories.size() == 3) {
-            // Draw Category 1
+            g.drawString(categories.get(0), 500, 350);
 
             // Draw Category 2
+            super.paintComponent(g);
+            g.setColor(Color.cyan);
+            int box2 = 300 * voteList.get(1) / totalTally();
+            screenArea -= box2;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(1) / totalTally());
+            g.drawString(categories.get(1), 500, 330);
 
             // Draw Category 3
-
-
-        } else if (categories.size() == 4) {
-            // Draw Category 1
-
-            // Draw Category 2
-
-            // Draw Category 3
+            super.paintComponent(g);
+            g.setColor(Color.green);
+            int box3 = 300 * voteList.get(2) / totalTally();
+            screenArea -= box3;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(2) / totalTally());
+            g.drawString(categories.get(2), 500, 310);
 
             // Draw Category 4
+            super.paintComponent(g);
+            g.setColor(Color.red);
+            int box4 = 300 * voteList.get(3) / totalTally();
+            screenArea -= box4;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(3) / totalTally());
+            g.drawString(categories.get(3), 500, 290);
 
-        } else if (categories.size() == 5) {
+        }
+        else if (categories.size() == 5)
+        {
+            int screenArea = 320;
             // Draw Category 1
+            super.paintComponent(g);
+            g.setColor(Color.blue);
+            int box1 = 300 * voteList.get(0) / totalTally();
+            screenArea -= box1;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(0) / totalTally());
+            g.drawString(categories.get(0), 500, 350);
 
             // Draw Category 2
+            super.paintComponent(g);
+            g.setColor(Color.cyan);
+            int box2 = 300 * voteList.get(1) / totalTally();
+            screenArea -= box2;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(1) / totalTally());
+            g.drawString(categories.get(1), 500, 330);
 
             // Draw Category 3
+            super.paintComponent(g);
+            g.setColor(Color.green);
+            int box3 = 300 * voteList.get(2) / totalTally();
+            screenArea -= box3;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(2) / totalTally());
+            g.drawString(categories.get(2), 500, 310);
 
             // Draw Category 4
+            super.paintComponent(g);
+            g.setColor(Color.red);
+            int box4 = 300 * voteList.get(3) / totalTally();
+            screenArea -= box4;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(3) / totalTally());
+            g.drawString(categories.get(3), 500, 290);
 
             // Draw Category 5
+            super.paintComponent(g);
+            g.setColor(Color.pink);
+            int box5 = 300 * voteList.get(4) / totalTally();
+            screenArea -= box5;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(4) / totalTally());
+            g.drawString(categories.get(4), 500, 270);
 
-        } else if (categories.size() == 6) {
+        }
+        else if (categories.size() == 6)
+        {
+            int screenArea = 320;
             // Draw Category 1
+            super.paintComponent(g);
+            g.setColor(Color.blue);
+            int box1 = 300 * voteList.get(0) / totalTally();
+            screenArea -= box1;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(0) / totalTally());
+            g.drawString(categories.get(0), 500, 350);
 
             // Draw Category 2
+            super.paintComponent(g);
+            g.setColor(Color.cyan);
+            int box2 = 300 * voteList.get(1) / totalTally();
+            screenArea -= box2;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(1) / totalTally());
+            g.drawString(categories.get(1), 500, 330);
 
             // Draw Category 3
+            super.paintComponent(g);
+            g.setColor(Color.green);
+            int box3 = 300 * voteList.get(2) / totalTally();
+            screenArea -= box3;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(2) / totalTally());
+            g.drawString(categories.get(2), 500, 310);
 
             // Draw Category 4
+            super.paintComponent(g);
+            g.setColor(Color.red);
+            int box4 = 300 * voteList.get(3) / totalTally();
+            screenArea -= box4;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(3) / totalTally());
+            g.drawString(categories.get(3), 500, 290);
 
             // Draw Category 5
+            super.paintComponent(g);
+            g.setColor(Color.pink);
+            int box5 = 300 * voteList.get(4) / totalTally();
+            screenArea -= box5;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(4) / totalTally());
+            g.drawString(categories.get(4), 500, 270);
 
             // Draw Category 6
+            super.paintComponent(g);
+            g.setColor(Color.orange);
+            int box6 = 300 * voteList.get(5) / totalTally();
+            screenArea -= box6;
+            g.fillRect(140, screenArea, 300, 300 * voteList.get(5) / totalTally());
+            g.drawString(categories.get(5), 500, 250);
         }
 
     }
@@ -135,7 +258,7 @@ public class StackedChart extends JComponent
         {
             tally += voteList.get(i);
         }
-        System.out.println(tally + "");
+        //System.out.println(tally + "");
         return tally;
     }
 }
