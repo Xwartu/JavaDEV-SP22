@@ -6,16 +6,18 @@ public class Farm {
     Method inventory takes in an ArrayList of generic type. Method returns a string representing a
     listing of the toString outputs of all objects in the ArrayList (exact String format up to you).
     */
-    public static <E> String inventory(ArrayList<E> itemList){
-
+    public static <E> String inventory(ArrayList<E> itemList)
+    {
+        return "";
     }
 
     /*
     Method list takes in an ArrayList of generic objects that extend the Animal interface.
     Method returns a string of each object’s animal sound compiled into a single String.
      */
-    public static <E extends Animal> String listen(ArrayList<E> animalList){
-
+    public static <E extends Animal> String listen(ArrayList<E> animalList)
+    {
+        return "";
     }
 
     /*
@@ -32,8 +34,9 @@ public class Farm {
     three classes. In order to do so, you must first check if the object is an instance of the class
     you want to cast it to. You can do so using the instanceof operator.
      */
-    public static <E extends Item> boolean isSellable(E item){
-
+    public static <E extends Item> boolean isSellable(E item)
+    {
+        return true;
     }
 
     /*
@@ -42,16 +45,18 @@ public class Farm {
     If so, get the price of the object and add it to a total sum.
     Return the total sum after iterating through each item.
      */
-    public static <E extends Item> int sell(ArrayList<E> sellList){
-
+    public static <E extends Item> int sell(ArrayList<E> sellList)
+    {
+        return 1;
     }
 
     /*
     Method takes in an ArrayList of generic object type that extends the Comparable interface.
     Using the compareTo method, return the index of the most valuable object in the ArrayList.
      */
-    public static <E extends Comparable<E>> int getMostValuable(ArrayList<E> comparableList){
-
+    public static <E extends Comparable<E>> int getMostValuable(ArrayList<E> comparableList)
+    {
+        return 1;
     }
 
 }
