@@ -33,10 +33,29 @@ public class BalanceParentheses
             return false;
         }
     }
-
     // Recursive function
-    public boolean balanceParenthesesRecursive(String str)
+    int g;
+    int leftParenthesesRe = 0;
+    int rightParenthesesRe = 0;
+
+    public balanceParenthesesRecursive(String str, )
     {
-        return true;
+        if (g == 0)
+        {
+            Character y = str.charAt(0);
+            if(y.equals('('))
+            {
+                leftParentheses += 1;
+            }
+            else if(y.equals(')'))
+            {
+                rightParentheses += 1;
+            }
+            return leftParentheses;
+        }
+        else if(g != str)
+        {
+
+        }
     }
 }
